@@ -27,6 +27,23 @@ class ApplicationModule(private val application: MicroBlogApplication) {
     @ApplicationContext
     fun provideContext(): Context = application
 
+    /**
+     * Network service provider fun for calling respective APIs
+     */
+
+    @Provides
+    @Singleton
+    fun provideNetworkService(): NetworkService = Networking.create(BuildConfig.BASE_URL, application.cacheDir, (10 * 1024 * 1024).toLong())
+
+    /**
+     * Network help provider fun for creating bridge and checking network related issue
+     */
+
+    @Provides
+    @Singleton
+    fun provideNetworkHelper(): NetworkHelper = NetworkHelper(application)
+
+
 
     /**
      * Since this function do not have @Singleton then each time CompositeDisposable is injected
@@ -35,18 +52,7 @@ class ApplicationModule(private val application: MicroBlogApplication) {
     @Provides
     fun provideCompositeDisposable(): CompositeDisposable = CompositeDisposable()
 
+
     @Provides
     fun provideSchedulerProvider(): SchedulerProvider = RxSchedulerProvider()
-
-
-    @Provides
-    @Singleton
-    fun provideNetworkService(): NetworkService = Networking.create(BuildConfig.BASE_URL, application.cacheDir, (10 * 1024 * 1024).toLong())
-
-
-
-    @Provides
-    @Singleton
-    fun provideNetworkHelper(): NetworkHelper = NetworkHelper(application)
-
 }
