@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rel_no_data_found"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <ImageView
+            android:id="@+id/image_no_connection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/error"
+            tools:ignore="ContentDescription" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="28dp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/sorry_this_time_we_could_not_find_anythings"
+            android:textColor="#929292"
+            android:textSize="20dp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <Button
+            android:id="@+id/btnRetry"
+            android:layout_width="160sp"
+            android:layout_height="50dp"
+            android:background="@drawable/blue_background_btn_selector"
+            android:text="Retry"
+            android:textAllCaps="false"
+            android:textColor="@color/White"
+            android:textSize="18dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

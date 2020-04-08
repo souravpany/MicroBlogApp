@@ -5,6 +5,7 @@ import android.app.Application
 import android.content.Context
 import com.android.microblogapp.MicroBlogApplication
 import com.android.microblogapp.data.remote.NetworkService
+import com.android.microblogapp.data.repository.UserDetailsRepository
 import com.android.microblogapp.di.ApplicationContext
 import com.android.microblogapp.di.module.ApplicationModule
 import com.android.microblogapp.utils.network.NetworkHelper
@@ -43,5 +44,7 @@ interface ApplicationComponent {
     fun getSchedulerProvider(): SchedulerProvider
 
     fun getCompositeDisposable(): CompositeDisposable
+
+    fun getUserDetailsRepository(): UserDetailsRepository
 
 }

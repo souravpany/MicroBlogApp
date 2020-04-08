@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">MicroBlogApp</string>
+
+    <!--Network/system error-->
+    <string name="network_connection_error">Internet connection lost, please retry again</string>
+    <string name="network_default_error">Something wrong happened, please retry again</string>
+    <string name="network_internal_error">Our systems got an error, please retry again</string>
+    <string name="network_server_not_available">Our services are under maintenance, please retry after some time
+    </string>
+    <string name="server_connection_error">Not able to connect, please retry again</string>
+    <string name="permission_denied">Permission Denied</string>
+
+
+    <!--Not data found-->
+    <string name="sorry_this_time_we_could_not_find_anythings">:-( Sorry this time we could not find anything..!!!</string>
+
+
 </resources>

@@ -1,6 +1,7 @@
 package com.android.microblogapp.data.remote
 
 
+import com.android.microblogapp.BuildConfig
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import okhttp3.Cache
 import okhttp3.OkHttpClient
@@ -22,7 +23,8 @@ object Networking {
                     .cache(Cache(cacheDir, cacheSize))
                     .addInterceptor(HttpLoggingInterceptor()
                         .apply {
-                            level = HttpLoggingInterceptor.Level.NONE
+                            level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
+                            else HttpLoggingInterceptor.Level.NONE
                         })
                     .readTimeout(NETWORK_CALL_TIMEOUT.toLong(), TimeUnit.SECONDS)
                     .writeTimeout(NETWORK_CALL_TIMEOUT.toLong(), TimeUnit.SECONDS)

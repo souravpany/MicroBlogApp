@@ -20,7 +20,7 @@ android {
     buildTypes {
 
         debug {
-            buildConfigField("String", "BASE_URL", "\"http://100.24.146.181/\"")
+            buildConfigField("String", "BASE_URL", "\"https://jsonplaceholder.typicode.com/\"")
         }
 
         release {
@@ -37,7 +37,7 @@ dependencies {
     // JARs
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-        // Android Support Library
+    // Android Support Library
     implementation "androidx.appcompat:appcompat:$app_compat_version"
 
     // Constraint Layout
