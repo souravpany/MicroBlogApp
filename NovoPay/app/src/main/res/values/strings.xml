@@ -13,6 +13,7 @@
 
     <!--Not data found-->
     <string name="sorry_this_time_we_could_not_find_anythings">:-( Sorry this time we could not find anything..!!!</string>
+    <string name="actionbar_title">Novopay Microblog</string>
 
 
 </resources>

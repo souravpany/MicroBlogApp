@@ -19,6 +19,19 @@ class PostItemViewHolder(parent: ViewGroup) :
     override fun setupObservers() {
         super.setupObservers()
 
+        viewModel.id.observe(this, Observer {
+            itemView.txtId.text = it
+        })
+
+        viewModel.userId.observe(this, Observer {
+            itemView.txtUserId.text = it
+        })
+
+        viewModel.body.observe(this, Observer {
+            itemView.txtBody.text = it
+        })
+
+
         viewModel.title.observe(this, Observer {
             itemView.txtTitle.text = it
         })

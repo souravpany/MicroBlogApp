@@ -1,5 +1,6 @@
 package com.android.microblogapp.data.remote
 
+import com.android.microblogapp.data.model.Comment
 import com.android.microblogapp.data.model.Post
 import com.android.microblogapp.data.model.User
 import io.reactivex.Single
@@ -30,6 +31,22 @@ interface NetworkService {
     fun doPostListCall(
         @Query("userId") userId: Int
     ): Single<List<Post>>
+
+    @GET(Endpoints.POST_LIST + "/{userId}")
+    fun doPostDetailsCall(
+        @Path(
+            value = "userId",
+            encoded = true
+        ) userId: Int?
+    ): Single<Post>
+
+    @GET(Endpoints.POST_LIST + "/{postId}" + "/" + Endpoints.COMMENT_LIST)
+    fun doCommentDetailsCall(
+        @Path(
+            value = "postId",
+            encoded = true
+        ) userId: Int?
+    ): Single<List<Comment>>
 
 
 }

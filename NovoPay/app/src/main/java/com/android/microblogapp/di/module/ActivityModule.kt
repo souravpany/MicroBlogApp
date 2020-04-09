@@ -2,10 +2,10 @@ package com.android.microblogapp.di.module
 
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.android.microblogapp.data.repository.PostRepository
-import com.android.microblogapp.data.repository.UserDetailsRepository
-import com.android.microblogapp.data.repository.UserRepository
+import com.android.microblogapp.data.repository.*
 import com.android.microblogapp.ui.base.BaseActivity
+import com.android.microblogapp.ui.postdetailsection.PostDetailsViewModel
+import com.android.microblogapp.ui.postdetailsection.adapter.CommentListAdapter
 import com.android.microblogapp.ui.userprofile.UserProfileViewModel
 import com.android.microblogapp.ui.userprofile.adapter.PostListAdapter
 import com.android.microblogapp.ui.usersection.UsersSectionViewModel
@@ -33,6 +33,9 @@ class ActivityModule(private val activity: BaseActivity<*>) {
 
     @Provides
     fun providePostListAdapter() = PostListAdapter(activity.lifecycle, ArrayList())
+
+    @Provides
+    fun provideCommentListAdapter() = CommentListAdapter(activity.lifecycle, ArrayList())
 
 
     @Provides
@@ -62,5 +65,19 @@ class ActivityModule(private val activity: BaseActivity<*>) {
                 userDetailsRepository, postRepository
             )
         }).get(UserProfileViewModel::class.java)
+
+    @Provides
+    fun providePostDetailsViewModel(
+        schedulerProvider: SchedulerProvider,
+        compositeDisposable: CompositeDisposable,
+        networkHelper: NetworkHelper,
+        postDetailRepository: PostDetailRepository, commentDetailRepository: CommentDetailRepository
+    ): PostDetailsViewModel = ViewModelProviders.of(
+        activity, ViewModelProviderFactory(PostDetailsViewModel::class) {
+            PostDetailsViewModel(
+                schedulerProvider, compositeDisposable, networkHelper, ArrayList(),
+                postDetailRepository, commentDetailRepository
+            )
+        }).get(PostDetailsViewModel::class.java)
 
 }

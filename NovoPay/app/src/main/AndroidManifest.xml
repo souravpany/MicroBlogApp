@@ -13,13 +13,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".ui.userprofile.UserProfileActivity"
-            android:label="Novopay Microblog"
-            android:screenOrientation="unspecified" />
+
+
         <activity
             android:name=".ui.usersection.UsersSectionActivity"
-            android:label="Novopay Microblog"
+            android:label="@string/actionbar_title"
             android:screenOrientation="unspecified">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +26,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".ui.postdetailsection.PostDetailsActivity"
+            android:label="@string/actionbar_title"
+            android:screenOrientation="unspecified" />
+        <activity
+            android:name=".ui.userprofile.UserProfileActivity"
+            android:label="@string/actionbar_title"
+            android:screenOrientation="unspecified" />
+
     </application>
 
 </manifest>

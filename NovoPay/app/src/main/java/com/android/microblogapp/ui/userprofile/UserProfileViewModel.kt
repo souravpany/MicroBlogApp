@@ -14,7 +14,7 @@ class UserProfileViewModel(
     schedulerProvider: SchedulerProvider,
     compositeDisposable: CompositeDisposable,
     networkHelper: NetworkHelper,
-    private val arrayListPost: ArrayList<Post>,
+    val arrayListPost: ArrayList<Post>,
     private val userDetailsRepository: UserDetailsRepository,
     private val postRepository: PostRepository
 ) : BaseViewModel(schedulerProvider, compositeDisposable, networkHelper) {
@@ -23,6 +23,7 @@ class UserProfileViewModel(
     val userName: MutableLiveData<String> = MutableLiveData()
     val userEmail: MutableLiveData<String> = MutableLiveData()
     val userId: MutableLiveData<Int> = MutableLiveData()
+    val launchPostDetailsScreen: MutableLiveData<Int> = MutableLiveData()
 
     val userProfilePbLoading: MutableLiveData<Boolean> = MutableLiveData()
     val postLists: MutableLiveData<Resource<List<Post>>> = MutableLiveData()
@@ -67,6 +68,16 @@ class UserProfileViewModel(
             )
         }
     }
+
+
+    /**
+     * calling user profile screen activity by passing user_id.
+     *
+     * */
+    fun callPostDetailScreen(id: Int) {
+        launchPostDetailsScreen.postValue(id)
+    }
+
 
 
     override fun onCreate() {

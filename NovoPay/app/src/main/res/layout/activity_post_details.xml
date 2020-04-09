@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardUserDetails"
+            android:id="@+id/cardPostDetails"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -24,7 +24,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:orientation="vertical">
 
@@ -32,30 +32,63 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="User Details"
+                    android:text="Post Details"
                     android:textColor="@color/Black"
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/txtProfileName"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Name"
+                    android:id="@+id/txtPostTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:autoSizeTextType="uniform"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/txtProfileId"
+                    android:id="@+id/txtPostId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Id"
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/txtProfileEmail"
+                    android:id="@+id/txtUserId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Email"
                     android:textSize="16sp" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardPostBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:elevation="5dp"
+            android:orientation="vertical"
+            app:cardBackgroundColor="@color/gray"
+            app:cardCornerRadius="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:text="Post Body"
+                    android:textColor="@color/Black"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/txtPostBody"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    app:autoSizeTextType="uniform"
+                    android:textSize="16sp" />
+
             </LinearLayout>
 
         </androidx.cardview.widget.CardView>
@@ -64,7 +97,6 @@
             android:id="@+id/cardUserPost"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/cardUserDetails"
             android:layout_margin="5dp"
             android:elevation="5dp"
             android:orientation="vertical"
@@ -81,12 +113,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="Posts"
+                    android:text="Comments"
                     android:textColor="@color/Black"
                     android:textSize="20sp" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvPost"
+                    android:id="@+id/rvComment"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -100,7 +132,7 @@
     </LinearLayout>
 
     <ProgressBar
-        android:id="@+id/userProfileLoading"
+        android:id="@+id/postLoading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
